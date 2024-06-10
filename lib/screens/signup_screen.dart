@@ -1,3 +1,4 @@
+import 'package:courseinsights/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -16,7 +17,6 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -224,22 +224,29 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 const Gap(12),
                 Center(
-                  child: RichText(
-                    text: const TextSpan(
-                      text: 'Already have an account? ',
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Already have an account? ',
                       style: TextStyle(fontWeight: FontWeight.w400),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Login',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromARGB(255, 166, 255, 169),
-                          ),
-                        ),
-                      ],
                     ),
-                  ),
-                ),
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      ),
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: Color.fromARGB(255, 166, 255, 169),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
                 Gap(MediaQuery.viewInsetsOf(context).bottom == 0 ? 0 : 15),
               ],
             ),

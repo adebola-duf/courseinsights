@@ -1,3 +1,4 @@
+import 'package:courseinsights/screens/home_screen.dart';
 import 'package:courseinsights/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -149,7 +150,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const Gap(32),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  ),
                   child: Container(
                     height: 48,
                     width: double.infinity,
